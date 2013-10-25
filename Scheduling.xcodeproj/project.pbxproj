@@ -23,6 +23,10 @@
 		F1E1AD83181A99950041CB1A /* TabMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E1AD82181A99950041CB1A /* TabMainController.m */; };
 		F1E1AD87181A9EF00041CB1A /* Default-h568.png in Resources */ = {isa = PBXBuildFile; fileRef = F1E1AD85181A9EF00041CB1A /* Default-h568.png */; };
 		F1E1AD88181A9EF00041CB1A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F1E1AD86181A9EF00041CB1A /* Default.png */; };
+		F1E1AD8F181AB2C20041CB1A /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E1AD8E181AB2C20041CB1A /* TimelineViewController.m */; };
+		F1E1AD92181ABE100041CB1A /* ShowUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E1AD91181ABE100041CB1A /* ShowUserViewController.m */; };
+		F1E1AD95181ABF090041CB1A /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = F1E1AD93181ABF090041CB1A /* user.png */; };
+		F1E1AD96181ABF090041CB1A /* tl.png in Resources */ = {isa = PBXBuildFile; fileRef = F1E1AD94181ABF090041CB1A /* tl.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +63,12 @@
 		F1E1AD85181A9EF00041CB1A /* Default-h568.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-h568.png"; sourceTree = "<group>"; };
 		F1E1AD86181A9EF00041CB1A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		F1E1AD89181AA6260041CB1A /* AppMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppMacro.h; sourceTree = "<group>"; };
+		F1E1AD8D181AB2C20041CB1A /* TimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineViewController.h; sourceTree = "<group>"; };
+		F1E1AD8E181AB2C20041CB1A /* TimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineViewController.m; sourceTree = "<group>"; };
+		F1E1AD90181ABE100041CB1A /* ShowUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowUserViewController.h; sourceTree = "<group>"; };
+		F1E1AD91181ABE100041CB1A /* ShowUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowUserViewController.m; sourceTree = "<group>"; };
+		F1E1AD93181ABF090041CB1A /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
+		F1E1AD94181ABF090041CB1A /* tl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tl.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +136,10 @@
 				F1E1AD7F181A996E0041CB1A /* RootViewController.m */,
 				F1E1AD81181A99950041CB1A /* TabMainController.h */,
 				F1E1AD82181A99950041CB1A /* TabMainController.m */,
+				F1E1AD8D181AB2C20041CB1A /* TimelineViewController.h */,
+				F1E1AD8E181AB2C20041CB1A /* TimelineViewController.m */,
+				F1E1AD90181ABE100041CB1A /* ShowUserViewController.h */,
+				F1E1AD91181ABE100041CB1A /* ShowUserViewController.m */,
 				F1E1ACC1181A56870041CB1A /* Images.xcassets */,
 				F1E1ACB6181A56870041CB1A /* Supporting Files */,
 			);
@@ -164,6 +178,8 @@
 		F1E1AD84181A9EF00041CB1A /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				F1E1AD93181ABF090041CB1A /* user.png */,
+				F1E1AD94181ABF090041CB1A /* tl.png */,
 				F1E1AD85181A9EF00041CB1A /* Default-h568.png */,
 				F1E1AD86181A9EF00041CB1A /* Default.png */,
 			);
@@ -246,7 +262,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1E1AD87181A9EF00041CB1A /* Default-h568.png in Resources */,
+				F1E1AD95181ABF090041CB1A /* user.png in Resources */,
 				F1E1ACBA181A56870041CB1A /* InfoPlist.strings in Resources */,
+				F1E1AD96181ABF090041CB1A /* tl.png in Resources */,
 				F1E1ACC2181A56870041CB1A /* Images.xcassets in Resources */,
 				F1E1AD88181A9EF00041CB1A /* Default.png in Resources */,
 			);
@@ -269,8 +287,10 @@
 			files = (
 				F1E1ACC0181A56870041CB1A /* AppDelegate.m in Sources */,
 				F1E1ACBC181A56870041CB1A /* main.m in Sources */,
+				F1E1AD92181ABE100041CB1A /* ShowUserViewController.m in Sources */,
 				F1E1AD83181A99950041CB1A /* TabMainController.m in Sources */,
 				F1E1AD80181A996E0041CB1A /* RootViewController.m in Sources */,
+				F1E1AD8F181AB2C20041CB1A /* TimelineViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

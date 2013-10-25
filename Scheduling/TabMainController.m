@@ -7,23 +7,6 @@
 //
 
 #import "TabMainController.h"
-//#import "DroppyAppDelegate.h"
-//
-//#import "SLSQLite.h"
-//#import "EventController.h"
-//#import "ScheduleController.h"
-//#import "GenreController.h"
-//#import "SettingController.h"
-//#import "UserController.h"
-//#import "LocationController.h"
-//
-//#import "SFHFKeychainUtils.h"
-//#import "Event.h"
-
-#define TAB_INDEX_TIMELINE 0
-#define TAB_INDEX_RECOMMEND 2
-#define TAB_INDEX_CALENDAR 1
-#define TAB_INDEX_ACCOUNT 3
 
 @implementation TabMainController
 @synthesize tabBarController;
@@ -33,7 +16,7 @@
     self = [super init];
     if (self)
     {
-        NSLog(@"tab init");
+
     }
     return self;
 }
@@ -44,7 +27,25 @@
 {
     [super viewDidLoad];
     
-    NSLog(@"tab");
+    timelineViewController = [[TimelineViewController alloc] init];
+    UINavigationController *timelineNav = [[UINavigationController alloc] initWithRootViewController:timelineViewController];
+    timelineNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"TimeLine", @"TabBarTitle")
+                                                     image:[UIImage imageNamed:@"tl.png"]
+                                                       tag:1];
+    
+    showUserViewController = [[ShowUserViewController alloc] init];
+    UINavigationController *showUserNav = [[UINavigationController alloc] initWithRootViewController:showUserViewController];
+    showUserNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"User", @"TabBarTitle")
+                                                     image:[UIImage imageNamed:@"user.png"]
+                                                       tag:2];
+    NSMutableArray *array = [NSMutableArray array];
+    [array addObject:timelineNav];
+    [array addObject:showUserNav];
+    
+    tabBarController = [[UITabBarController alloc] init];
+    tabBarController.viewControllers = array;
+    tabBarController.view.frame = self.view.bounds;
+    [self.view addSubview:tabBarController.view];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

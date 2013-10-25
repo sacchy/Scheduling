@@ -11,6 +11,8 @@
 
 @interface RootViewController :UIViewController
 
-- (void)buttonEnable;
+@property (strong, nonatomic) TabMainController *tabMainController;
 
+- (void)buttonEnable;
+- (id)initWithFrame:(CGRect)frame;
 @end

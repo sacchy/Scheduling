@@ -10,14 +10,15 @@
 #import "RootViewController.h"
 
 @implementation AppDelegate
+@synthesize window = _window;
 @synthesize rootViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-	rootViewController = [[RootViewController alloc] init];
-    [self.window addSubview:rootViewController.view];
+    self.window.rootViewController = [[RootViewController alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window makeKeyAndVisible];
+
     return YES;
 }
 

@@ -10,35 +10,49 @@
 #import "AppMacro.h"
 
 @implementation RootViewController
+@synthesize tabMainController;
 
 #pragma mark - View lifecycle
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self   = [super init];
+    if (self)
+    {
+        //タップイベントを検知
+        self.view.userInteractionEnabled = NO;
+        
+        UIImage *splashImage;
+        if([[UIScreen mainScreen]bounds].size.height == 568)
+            splashImage = [UIImage imageNamed:@"Default-h568.png"];
+        else
+            splashImage = [UIImage imageNamed:@"Default.png"];
+        
+        UIImageView *splashImageView = [[UIImageView alloc] initWithImage:splashImage];
+        splashImageView.frame = CGRectMake(0, 0, WIN_SIZE.width, WIN_SIZE.height);
+        [self.view addSubview:splashImageView];
+        
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        [UIView beginAnimations:nil context:context];
+        [UIView setAnimationDuration:0.5f];
+        [UIView setAnimationDelay:2.0f];
+        [UIView setAnimationDelegate:self];
+        [UIView setAnimationDidStopSelector:@selector(buttonEnable)];
+        
+        splashImageView.alpha = 0.0f;
+        [UIView commitAnimations];
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    //タップイベントを検知
-    self.view.userInteractionEnabled = NO;
-    
-    UIImage *splashImage;
-    if([[UIScreen mainScreen]bounds].size.height == 568)
-        splashImage = [UIImage imageNamed:@"Default-h568.png"];
-    else
-        splashImage = [UIImage imageNamed:@"Default.png"];
+}
 
-    UIImageView *splashImageView = [[UIImageView alloc] initWithImage:splashImage];
-    splashImageView.frame = CGRectMake(0, 0, WIN_SIZE.width, WIN_SIZE.height);
-    [self.view addSubview:splashImageView];
-
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    [UIView beginAnimations:nil context:context];
-    [UIView setAnimationDuration:0.5f];
-    [UIView setAnimationDelay:2.0f];   
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector:@selector(buttonEnable)];
-    
-    splashImageView.alpha = 0.0f;
-    [UIView commitAnimations];
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -54,9 +68,8 @@
     //タップイベントを検知
     self.view.userInteractionEnabled = YES;
     
-    TabMainController *tabMainController = [[TabMainController alloc] init];
-    UINavigationController *tabNav = [[UINavigationController alloc] initWithRootViewController:tabMainController];
-    [self.navigationController pushViewController:tabNav animated:YES];
+    tabMainController = [[TabMainController alloc] init];
+    [self.view addSubview:tabMainController.view];
 }
 
 @end

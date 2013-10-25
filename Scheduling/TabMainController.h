@@ -7,26 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
-//#import "TimelineViewController.h"
-//#import "IndexRecommendViewController.h"
-//#import "CalendarViewController.h"
-//#import "SLNetworkManagers.h"
-//#import "ShowUserViewController.h"
-//#import "SearchEventViewController.h"
+#import "TimelineViewController.h"
+#import "ShowUserViewController.h"
 
 @interface TabMainController : UIViewController<UITabBarControllerDelegate>
 {
-    @private
-
-//    TimelineViewController *tlVc;
-//    CalendarViewController *clVc;
-//    ShowUserViewController *suVc;
-//    SearchEventViewController* seVc;
-    
-    UIImageView *iv;    //起動時イメージ
-    NSMutableArray *events;
-    
+    TimelineViewController *timelineViewController;
+    ShowUserViewController *showUserViewController;
 }
 
 @property (strong, nonatomic) UITabBarController *tabBarController;

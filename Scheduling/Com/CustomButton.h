@@ -1,5 +1,5 @@
 //
-//  TimelineViewController.h
+//  CustomButton.h
 //  Scheduling
 //
 //  Created by Sacchy on 2013/10/25.
@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "IndexEventViewController.h"
 
-@interface TimelineViewController : IndexEventViewController
+@interface CustomButton : UIButton
+{
+    NSString *section;
+}
+@property (nonatomic, retain) NSString *section;
 
 @end

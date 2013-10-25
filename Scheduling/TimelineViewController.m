@@ -16,9 +16,15 @@
 
 - (id)init
 {
-    self = [super init];
-    if (self) {
-        // Custom initialization
+    self = [super initWithType:IndexEventViewControllerTypeNone user:1];
+    if (self)
+    {
+        // イベント追加ボタン
+        UIBarButtonItem *newPrivateEventButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                                               target:self
+                                                                                               action:@selector(newEventButtonDidPush:)];
+        self.navigationItem.rightBarButtonItem = newPrivateEventButton;
+        
     }
     return self;
 }
@@ -27,14 +33,22 @@
 {
     [super viewDidLoad];
     
-    self.title = NSLocalizedString(@"TimeLine", @"Title");
     self.view.backgroundColor = [UIColor redColor];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+
+- (void)newEventButtonDidPush:(id)sender
+{
+//    NewDropEventViewController* newde = [[NewDropEventViewController alloc] init];
+//    UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:newde];
+//    nav.navigationBar.barStyle = UIBarStyleBlackOpaque;
+//    
+//    [self presentModalViewController:nav animated:YES];
+    NSLog(@"new");
 }
 
 @end

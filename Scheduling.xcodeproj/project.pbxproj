@@ -38,6 +38,14 @@
 		F1E1ADB7181AECCA0041CB1A /* SLStringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E1ADB6181AECCA0041CB1A /* SLStringUtil.m */; };
 		F1E1ADB9181AF0D40041CB1A /* grayArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = F1E1ADB8181AF0D40041CB1A /* grayArrow.png */; };
 		F1E1ADBC181B02030041CB1A /* ImageLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E1ADBB181B02030041CB1A /* ImageLoading.m */; };
+		F1E1ADC8181B1DA00041CB1A /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E1ADBF181B1DA00041CB1A /* FMDatabase.m */; };
+		F1E1ADC9181B1DA00041CB1A /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E1ADC1181B1DA00041CB1A /* FMDatabaseAdditions.m */; };
+		F1E1ADCA181B1DA00041CB1A /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E1ADC3181B1DA00041CB1A /* FMDatabasePool.m */; };
+		F1E1ADCB181B1DA00041CB1A /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E1ADC5181B1DA00041CB1A /* FMDatabaseQueue.m */; };
+		F1E1ADCC181B1DA00041CB1A /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E1ADC7181B1DA00041CB1A /* FMResultSet.m */; };
+		F1E1ADCE181B1DBF0041CB1A /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F1E1ADCD181B1DBF0041CB1A /* libsqlite3.0.dylib */; };
+		F1E1ADD1181B1F5E0041CB1A /* NewDropEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E1ADD0181B1F5E0041CB1A /* NewDropEventViewController.m */; };
+		F1E1ADD4181B1FA20041CB1A /* SLDateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E1ADD3181B1FA20041CB1A /* SLDateUtil.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +109,21 @@
 		F1E1ADB8181AF0D40041CB1A /* grayArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grayArrow.png; sourceTree = "<group>"; };
 		F1E1ADBA181B02030041CB1A /* ImageLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLoading.h; sourceTree = "<group>"; };
 		F1E1ADBB181B02030041CB1A /* ImageLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLoading.m; sourceTree = "<group>"; };
+		F1E1ADBE181B1DA00041CB1A /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		F1E1ADBF181B1DA00041CB1A /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		F1E1ADC0181B1DA00041CB1A /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		F1E1ADC1181B1DA00041CB1A /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		F1E1ADC2181B1DA00041CB1A /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		F1E1ADC3181B1DA00041CB1A /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		F1E1ADC4181B1DA00041CB1A /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		F1E1ADC5181B1DA00041CB1A /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		F1E1ADC6181B1DA00041CB1A /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		F1E1ADC7181B1DA00041CB1A /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		F1E1ADCD181B1DBF0041CB1A /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		F1E1ADCF181B1F5E0041CB1A /* NewDropEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewDropEventViewController.h; sourceTree = "<group>"; };
+		F1E1ADD0181B1F5E0041CB1A /* NewDropEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewDropEventViewController.m; sourceTree = "<group>"; };
+		F1E1ADD2181B1FA20041CB1A /* SLDateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLDateUtil.h; sourceTree = "<group>"; };
+		F1E1ADD3181B1FA20041CB1A /* SLDateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLDateUtil.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1E1ADCE181B1DBF0041CB1A /* libsqlite3.0.dylib in Frameworks */,
 				F1E1ACB2181A56870041CB1A /* CoreGraphics.framework in Frameworks */,
 				F1E1ACB4181A56870041CB1A /* UIKit.framework in Frameworks */,
 				F1E1ACB0181A56870041CB1A /* Foundation.framework in Frameworks */,
@@ -149,6 +173,7 @@
 		F1E1ACAE181A56870041CB1A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F1E1ADCD181B1DBF0041CB1A /* libsqlite3.0.dylib */,
 				F1E1ACAF181A56870041CB1A /* Foundation.framework */,
 				F1E1ACB1181A56870041CB1A /* CoreGraphics.framework */,
 				F1E1ACB3181A56870041CB1A /* UIKit.framework */,
@@ -160,6 +185,7 @@
 		F1E1ACB5181A56870041CB1A /* Scheduling */ = {
 			isa = PBXGroup;
 			children = (
+				F1E1ADBD181B1DA00041CB1A /* Fmdb */,
 				F1E1ADB4181AECCA0041CB1A /* Util */,
 				F1E1ADB0181AE92F0041CB1A /* Model */,
 				F1E1ADA6181AE6420041CB1A /* Cell */,
@@ -175,6 +201,8 @@
 				F1E1AD82181A99950041CB1A /* TabMainController.m */,
 				F1E1AD8D181AB2C20041CB1A /* TimelineViewController.h */,
 				F1E1AD8E181AB2C20041CB1A /* TimelineViewController.m */,
+				F1E1ADCF181B1F5E0041CB1A /* NewDropEventViewController.h */,
+				F1E1ADD0181B1F5E0041CB1A /* NewDropEventViewController.m */,
 				F1E1AD90181ABE100041CB1A /* ShowUserViewController.h */,
 				F1E1AD91181ABE100041CB1A /* ShowUserViewController.m */,
 				F1E1AD98181AD3310041CB1A /* IndexEventViewController.h */,
@@ -271,12 +299,31 @@
 		F1E1ADB4181AECCA0041CB1A /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				F1E1ADD2181B1FA20041CB1A /* SLDateUtil.h */,
+				F1E1ADD3181B1FA20041CB1A /* SLDateUtil.m */,
 				F1E1ADBA181B02030041CB1A /* ImageLoading.h */,
 				F1E1ADBB181B02030041CB1A /* ImageLoading.m */,
 				F1E1ADB5181AECCA0041CB1A /* SLStringUtil.h */,
 				F1E1ADB6181AECCA0041CB1A /* SLStringUtil.m */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		F1E1ADBD181B1DA00041CB1A /* Fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				F1E1ADBE181B1DA00041CB1A /* FMDatabase.h */,
+				F1E1ADBF181B1DA00041CB1A /* FMDatabase.m */,
+				F1E1ADC0181B1DA00041CB1A /* FMDatabaseAdditions.h */,
+				F1E1ADC1181B1DA00041CB1A /* FMDatabaseAdditions.m */,
+				F1E1ADC2181B1DA00041CB1A /* FMDatabasePool.h */,
+				F1E1ADC3181B1DA00041CB1A /* FMDatabasePool.m */,
+				F1E1ADC4181B1DA00041CB1A /* FMDatabaseQueue.h */,
+				F1E1ADC5181B1DA00041CB1A /* FMDatabaseQueue.m */,
+				F1E1ADC6181B1DA00041CB1A /* FMResultSet.h */,
+				F1E1ADC7181B1DA00041CB1A /* FMResultSet.m */,
+			);
+			path = Fmdb;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -381,9 +428,15 @@
 			files = (
 				F1E1ACC0181A56870041CB1A /* AppDelegate.m in Sources */,
 				F1E1ADA2181ADA970041CB1A /* HeaderView.m in Sources */,
+				F1E1ADCA181B1DA00041CB1A /* FMDatabasePool.m in Sources */,
+				F1E1ADD4181B1FA20041CB1A /* SLDateUtil.m in Sources */,
 				F1E1ACBC181A56870041CB1A /* main.m in Sources */,
 				F1E1AD92181ABE100041CB1A /* ShowUserViewController.m in Sources */,
+				F1E1ADCB181B1DA00041CB1A /* FMDatabaseQueue.m in Sources */,
+				F1E1ADC8181B1DA00041CB1A /* FMDatabase.m in Sources */,
+				F1E1ADC9181B1DA00041CB1A /* FMDatabaseAdditions.m in Sources */,
 				F1E1ADB7181AECCA0041CB1A /* SLStringUtil.m in Sources */,
+				F1E1ADCC181B1DA00041CB1A /* FMResultSet.m in Sources */,
 				F1E1AD83181A99950041CB1A /* TabMainController.m in Sources */,
 				F1E1ADA9181AE6430041CB1A /* IndexEventCell.m in Sources */,
 				F1E1ADB3181AE92F0041CB1A /* Event.m in Sources */,
@@ -391,6 +444,7 @@
 				F1E1AD9A181AD3310041CB1A /* IndexEventViewController.m in Sources */,
 				F1E1ADBC181B02030041CB1A /* ImageLoading.m in Sources */,
 				F1E1ADAC181AE6BA0041CB1A /* VerticalLabel.m in Sources */,
+				F1E1ADD1181B1F5E0041CB1A /* NewDropEventViewController.m in Sources */,
 				F1E1AD80181A996E0041CB1A /* RootViewController.m in Sources */,
 				F1E1AD8F181AB2C20041CB1A /* TimelineViewController.m in Sources */,
 				F1E1ADAF181AE7070041CB1A /* CustomButton.m in Sources */,

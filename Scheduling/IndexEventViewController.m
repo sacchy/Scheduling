@@ -10,6 +10,7 @@
 #import "IndexEventCell.h"
 #import "Event.h"
 #import "ImageLoading.h"
+#import "FMDatabase.h"
 
 @interface IndexEventViewController ()
 

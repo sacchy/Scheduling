@@ -7,6 +7,8 @@
 //
 
 #import "TimelineViewController.h"
+#import "NewDropEventViewController.h"
+#import "FMDatabase.h"
 
 @interface TimelineViewController ()
 
@@ -34,6 +36,21 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor redColor];
+    
+    // FMDB初期設定
+    paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES );
+    dir   = [paths objectAtIndex:0];
+    NSLog(@"%@",paths);
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:[dir stringByAppendingPathComponent:@"event.db"]];
+    [db open];
+    [db close];
+    
+    NSString *sql = @"CREATE TABLE IF NOT EXISTS events (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT,schedule_id INTEGER,creator_id INTEGER,icon_path TEXT,user_name TEXT,details TEXT);";
+    
+    [db open];
+    [db executeUpdate:sql];
+    [db close];
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,13 +59,11 @@
 }
 
 - (void)newEventButtonDidPush:(id)sender
-{
-//    NewDropEventViewController* newde = [[NewDropEventViewController alloc] init];
-//    UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:newde];
-//    nav.navigationBar.barStyle = UIBarStyleBlackOpaque;
-//    
-//    [self presentModalViewController:nav animated:YES];
-    NSLog(@"new");
+{    
+    NewDropEventViewController *newEvent = [[NewDropEventViewController alloc] init];
+    UINavigationController *newNav = [[UINavigationController alloc] initWithRootViewController:newEvent];
+    newNav.navigationBar.barStyle = UIBarStyleBlackOpaque;
+    [self presentViewController:newNav animated:YES completion:nil];
 }
 
 @end

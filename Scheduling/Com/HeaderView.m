@@ -98,7 +98,7 @@
             break;
             
         case HeaderViewStateStopping:
-//            [self.activityIndicatorView startAnimating];
+            [self.activityIndicatorView startAnimating];
             self.textLabel.text = @"更新中...";
             self.imageView.hidden = YES;
             break;

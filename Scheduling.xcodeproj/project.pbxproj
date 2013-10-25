@@ -37,6 +37,7 @@
 		F1E1ADB3181AE92F0041CB1A /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E1ADB2181AE92F0041CB1A /* Event.m */; };
 		F1E1ADB7181AECCA0041CB1A /* SLStringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E1ADB6181AECCA0041CB1A /* SLStringUtil.m */; };
 		F1E1ADB9181AF0D40041CB1A /* grayArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = F1E1ADB8181AF0D40041CB1A /* grayArrow.png */; };
+		F1E1ADBC181B02030041CB1A /* ImageLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E1ADBB181B02030041CB1A /* ImageLoading.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,8 @@
 		F1E1ADB5181AECCA0041CB1A /* SLStringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLStringUtil.h; sourceTree = "<group>"; };
 		F1E1ADB6181AECCA0041CB1A /* SLStringUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLStringUtil.m; sourceTree = "<group>"; };
 		F1E1ADB8181AF0D40041CB1A /* grayArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grayArrow.png; sourceTree = "<group>"; };
+		F1E1ADBA181B02030041CB1A /* ImageLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLoading.h; sourceTree = "<group>"; };
+		F1E1ADBB181B02030041CB1A /* ImageLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLoading.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +271,8 @@
 		F1E1ADB4181AECCA0041CB1A /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				F1E1ADBA181B02030041CB1A /* ImageLoading.h */,
+				F1E1ADBB181B02030041CB1A /* ImageLoading.m */,
 				F1E1ADB5181AECCA0041CB1A /* SLStringUtil.h */,
 				F1E1ADB6181AECCA0041CB1A /* SLStringUtil.m */,
 			);
@@ -384,6 +389,7 @@
 				F1E1ADB3181AE92F0041CB1A /* Event.m in Sources */,
 				F1E1ADA5181ADB030041CB1A /* FooterView.m in Sources */,
 				F1E1AD9A181AD3310041CB1A /* IndexEventViewController.m in Sources */,
+				F1E1ADBC181B02030041CB1A /* ImageLoading.m in Sources */,
 				F1E1ADAC181AE6BA0041CB1A /* VerticalLabel.m in Sources */,
 				F1E1AD80181A996E0041CB1A /* RootViewController.m in Sources */,
 				F1E1AD8F181AB2C20041CB1A /* TimelineViewController.m in Sources */,

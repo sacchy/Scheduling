@@ -8,6 +8,8 @@
 
 #import "IndexEventViewController.h"
 #import "IndexEventCell.h"
+#import "Event.h"
+#import "ImageLoading.h"
 
 @interface IndexEventViewController ()
 
@@ -42,6 +44,24 @@
 - (void)getEvent
 {
     NSLog(@"getEvent");
+    
+    // 通常はDBを利用
+    NSMutableArray *dataArray = [NSMutableArray array];
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic setObject:@"ハリーポッター上映日" forKey:@"name"];
+    [dic setObject:@"1" forKey:@"schedule_id"];
+    [dic setObject:@"1" forKey:@"creator_id"];
+    [dic setObject:@"http://a3.mzstatic.com/us/r1000/012/Purple4/v4/56/d7/0e/56d70e8a-2df7-ba5a-8a32-c8926abc976d/mzl.udlwkxfs.175x175-75.jpg" forKey:@"icon_path"];
+    [dic setObject:@"sacchy" forKey:@"user_name"];
+    [dic setObject:@"半純血のプリンス" forKey:@"details"];
+    [dataArray addObject:dic];
+    
+    events = [NSMutableArray array]; // 表示用
+    for(NSMutableDictionary *dic in dataArray)
+    {
+        Event *event = [[Event alloc] initWithData:dic];
+        [events addObject:event];
+    }
 }
 
 - (void)viewDidLoad
@@ -66,7 +86,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [dataSource count];
+    return [events count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -88,7 +108,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString* CellIdentifier = @"Cell";
-    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     IndexEventCell* cell = ( IndexEventCell* )[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if( cell == nil )
@@ -96,22 +115,20 @@
         cell = [[IndexEventCell alloc] init];
         cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     }
-#if 0
-    Event *event;
+
+    Event *event = [events objectAtIndex:indexPath.row];
     cell.user = event.userName;
     cell.event = event.name;
-    cell.date = event.startDateTimeStr;
     
     if(event.iconPath)
     {
-        /* アイコンを設定します */
         [ImageLoading imageLoading:event.iconPath
                          imageView:cell.iconView
                         imageCache:imageCache
                              event:event
          ];
     }
-#endif
+
     return cell;
 }
 @end

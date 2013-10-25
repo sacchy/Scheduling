@@ -43,11 +43,8 @@
     NSLog(@"%@",paths);
     
     FMDatabase *db = [FMDatabase databaseWithPath:[dir stringByAppendingPathComponent:@"event.db"]];
-    [db open];
-    [db close];
-    
-    NSString *sql = @"CREATE TABLE IF NOT EXISTS events (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT,schedule_id INTEGER,creator_id INTEGER,icon_path TEXT,user_name TEXT,details TEXT);";
-    
+    NSString *sql = @"CREATE TABLE IF NOT EXISTS events (schedule_id INTEGER PRIMARY KEY AUTOINCREMENT,creator_id INTEGER,name TEXT,icon_path TEXT,user_name TEXT,details TEXT);";
+
     [db open];
     [db executeUpdate:sql];
     [db close];

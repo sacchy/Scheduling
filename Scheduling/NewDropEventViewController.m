@@ -9,9 +9,9 @@
 #import <QuartzCore/QuartzCore.h>
 #import "AppMacro.h"
 #import "NewDropEventViewController.h"
-//#import "EditEventViewController.h"
 #import "Event.h"
 #import "SLDateUtil.h"
+#import "FMDatabase.h"
 #define RANGE 0
 
 @implementation NewDropEventViewController
@@ -262,7 +262,7 @@
 #pragma mark - TexiField
 -(BOOL)textFieldShouldReturn:(UITextField*)textField
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    //[self dismissViewControllerAnimated:YES completion:nil];
     return YES;
 }
 
@@ -375,6 +375,26 @@
 
 - (void)saveButtonDidPush:(id)sender
 {
+    if ([textFieldEvent.text length] < 1)
+    {
+        [self showAlert];
+        return;
+    }
+    
+    // FMDB
+    NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES );
+    NSString *dir   = [paths objectAtIndex:0];
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:[dir stringByAppendingPathComponent:@"event.db"]];
+    [db open];
+    [db close];
+    
+    NSString *sql = @"REPLACE INTO events (creator_id,name,icon_path,user_name,details) VALUES (?,?,?,?,?);";
+    
+    [db open];
+    [db executeUpdate:sql,[NSString stringWithFormat:@"%d",1],textFieldEvent.text,@"http://a3.mzstatic.com/us/r1000/012/Purple4/v4/56/d7/0e/56d70e8a-2df7-ba5a-8a32-c8926abc976d/mzl.udlwkxfs.175x175-75.jpg",@"Sacchy",tv.text];
+    [db close];
+    
     //修正の場合
     [self.navigationController popViewControllerAnimated:YES];
     
@@ -466,4 +486,25 @@
     return result;
 }
 
+#pragma mark - Alert
+- (void)showAlert
+{
+    UIAlertView *registAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Cation", @"")
+                                                          message:NSLocalizedString(@"PleaseEnter", @"")
+                                                         delegate:self
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil, nil];
+    [registAlert show];
+}
+
+-(void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex)
+    {
+        case 0:
+            break;
+        default:
+            break;
+    }
+}
 @end

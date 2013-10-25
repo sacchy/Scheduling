@@ -1,32 +1,19 @@
 //
 //  TabMainController.h
-//  droppy
+//  Scheduling
 //
-//  Created by 佐藤 昌樹 on 11/12/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Created by Sacchy on 2013/10/25.
+//  Copyright (c) 2013年 sacchy. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-
 #import "TimelineViewController.h"
-#import "IndexRecommendViewController.h"
-#import "CalendarViewController.h"
-#import "SLNetworkManagers.h"
 #import "ShowUserViewController.h"
-#import "SearchEventViewController.h"
 
 @interface TabMainController : UIViewController<UITabBarControllerDelegate>
 {
-    @private
-
-    TimelineViewController *tlVc;
-    CalendarViewController *clVc;
-    ShowUserViewController *suVc;
-    SearchEventViewController* seVc;
-    
-    UIImageView *iv;    //起動時イメージ
-    NSMutableArray *events;
-    
+    TimelineViewController *timelineViewController;
+    ShowUserViewController *showUserViewController;
 }
 
 @property (strong, nonatomic) UITabBarController *tabBarController;

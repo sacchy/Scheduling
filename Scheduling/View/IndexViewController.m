@@ -32,11 +32,11 @@
         // Set TableView
         self.tableView.backgroundColor = [UIColor colorWithRed:0.765 green:0.765 blue:0.765 alpha:1.0];
         
-        self.headerView = [[HeaderView alloc] initWithFrame:CGRectMake(0, 0, 320, 60)];
+        self.headerView = [[HeaderView alloc] initWithFrame:CGRectMake(0, 0, 320, HEADER_HEIGHT)];
         self.footerView = [[FooterView alloc] initWithFrame:CGRectMake(0, 0, 320, 30)];
         
         self.tableView.tableHeaderView = self.headerView;
-        self.tableView.tableFooterView = self.footerView;
+        //self.tableView.tableFooterView = self.footerView;
         
         [self setHeaderViewHidden:YES animated:NO];
     }
@@ -59,7 +59,7 @@
     {
         [UIView animateWithDuration:0.2
                          animations:^{
-                             self.tableView.contentInset = UIEdgeInsetsMake(topOffset, 0, 0, 0);
+                             self.tableView.contentInset = UIEdgeInsetsMake(-35, 0, 0, 0); // TODO
                          }];
     }
     else
@@ -73,10 +73,10 @@
 {
     self.headerView.state = HeaderViewStateHidden;
     
-    //TODO 最終更新日
+    // 日時更新
     [self.headerView setUpdatedDate:[NSDate date]];
     
-    [self setHeaderViewHidden:YES animated:YES];
+//    [self setHeaderViewHidden:YES animated:YES];
 }
 
 - (void)reloadFinishedFooter
@@ -93,7 +93,7 @@
     NSLog(@"getList");
     [self.tableView reloadData];
     [self reloadFinishedHeader];
-    [self reloadFinishedFooter];
+//    [self reloadFinishedFooter];
 }
 
 //追加データ取得
@@ -130,22 +130,24 @@
     
     if (self.headerView.state != HeaderViewStateStopping) 
     {
-        if (PULLDOWN_MARGIN <= scrollView.contentOffset.y &&
-            scrollView.contentOffset.y < threshold) {
+        if (PULLDOWN_MARGIN <= scrollView.contentOffset.y && scrollView.contentOffset.y < threshold)
+        {
             self.headerView.state = HeaderViewStatePullingDown;
-            
-        } else if (scrollView.contentOffset.y < PULLDOWN_MARGIN) {
+        }
+        else if (scrollView.contentOffset.y < PULLDOWN_MARGIN)
+        {
             self.headerView.state = HeaderViewStateOveredThreshold;
-            
-        } else {
+        }
+        else
+        {
             self.headerView.state = HeaderViewStateHidden;
         }
     }
     
-    if((y > h + PULLUP_MARGIN) 
-       && self.footerView.state != FooterViewStateReloding) 
+    if((y > h + PULLUP_MARGIN) && self.footerView.state != FooterViewStateReloding)
     {
         self.footerView.state = FooterViewStateReloding;
+     
         //追加ロード
         [self performSelector:@selector(getListLoadMore)];
     }
@@ -156,9 +158,9 @@
 {
     if (self.headerView.state == HeaderViewStateOveredThreshold)
     {
+        NSLog(@"koko");
         self.headerView.state = HeaderViewStateStopping;
         [self setHeaderViewHidden:NO animated:YES];
-        
         [self performSelector:@selector(getList)];
     }
 }

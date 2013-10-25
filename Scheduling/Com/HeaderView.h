@@ -6,6 +6,8 @@
 //  Copyright (c) 2013年 sacchy. All rights reserved.
 //
 
+#define HEADER_HEIGHT 80
+
 typedef enum {
     HeaderViewStateHidden = 0,
     HeaderViewStatePullingDown,

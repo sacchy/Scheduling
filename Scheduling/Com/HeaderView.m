@@ -10,8 +10,6 @@
 
 @implementation HeaderView
 
-#define HEADER_HEIGHT 60
-
 @synthesize textLabel,detailTextLabel,imageView,activityIndicatorView;
 @synthesize state = state_;
 
@@ -25,7 +23,7 @@
         
         //矢印
         self.imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"grayArrow.png"]];
-        self.imageView.frame = CGRectMake(20, 0, 23, HEADER_HEIGHT);
+        self.imageView.frame = CGRectMake(20, -10, 23, HEADER_HEIGHT);
         [self addSubview:self.imageView];
         
         //ラベル
@@ -47,7 +45,6 @@
         self.detailTextLabel.backgroundColor = [UIColor clearColor];
         [self addSubview:self.detailTextLabel];
     }
-    
     return self;
 }
 

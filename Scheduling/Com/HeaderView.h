@@ -6,7 +6,7 @@
 //  Copyright (c) 2013年 sacchy. All rights reserved.
 //
 
-#define HEADER_HEIGHT 80
+#define HEADER_HEIGHT 60
 
 typedef enum {
     HeaderViewStateHidden = 0,

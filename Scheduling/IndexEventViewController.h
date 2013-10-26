@@ -20,13 +20,6 @@ typedef enum IndexEventViewControllerType
 @protected
     NSInteger userId_;
     NSInteger type_;
-    
-    // データ表示用
-    NSMutableArray *events;
-    
-    // FMDB
-    NSArray *paths;
-    NSString *dir;
 }
 
 - (id)initWithType:(IndexEventViewControllerType)type user:(NSInteger)userID;

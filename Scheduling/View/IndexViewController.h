@@ -24,10 +24,14 @@
     UIView              *indicator;
     BOOL                sending;
     NSInteger           loadOffset;         //データオフセット
-    
-    NSMutableArray      *dataSource;        //表示データ
-    
     NSMutableDictionary *imageCache;        //アイコンデータキャッシュ
+    
+    // データ表示用
+    NSMutableArray *events;
+    
+    // FMDB
+    NSArray *paths;
+    NSString *dir;
 }
 @property (nonatomic, retain) HeaderView* headerView;
 @property (nonatomic, retain) FooterView* footerView;

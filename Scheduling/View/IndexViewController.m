@@ -7,6 +7,7 @@
 //
 
 #import "IndexViewController.h"
+#import "AppMacro.h"
 
 @interface IndexViewController ()
 
@@ -50,16 +51,17 @@
 //ヘッダを隠す
 - (void)setHeaderViewHidden:(BOOL)hidden animated:(BOOL)animated
 {
+    NSLog(@"hidden");
     CGFloat topOffset = 0.0;
     if (hidden)
     {
-        topOffset = -self.headerView.frame.size.height;
+        topOffset = -self.headerView.frame.size.height ;
     }
     if (animated)
     {
         [UIView animateWithDuration:0.2
                          animations:^{
-                             self.tableView.contentInset = UIEdgeInsetsMake(-35, 0, 0, 0); // TODO
+                             self.tableView.contentInset = UIEdgeInsetsMake(topOffset, 0, 0, 0);
                          }];
     }
     else
@@ -91,24 +93,21 @@
 - (void)getList
 {
     NSLog(@"getList");
-    [self.tableView reloadData];
     [self reloadFinishedHeader];
 //    [self reloadFinishedFooter];
 }
 
-//追加データ取得
+// 追加データ取得
 - (void)getListLoadMore
 {
     NSLog(@"getListLoadMore");
 }
 
-//コールバック
+// コールバック
 - (void)callback:(NSMutableDictionary *)data
 {
-    //callback method
-    
     [indicator removeFromSuperview];
-    sending=NO;
+    sending = NO;
     self.view.userInteractionEnabled=YES;
 }
 
@@ -158,9 +157,8 @@
 {
     if (self.headerView.state == HeaderViewStateOveredThreshold)
     {
-        NSLog(@"koko");
         self.headerView.state = HeaderViewStateStopping;
-        [self setHeaderViewHidden:NO animated:YES];
+//        [self setHeaderViewHidden:NO animated:YES];
         [self performSelector:@selector(getList)];
     }
 }
@@ -173,7 +171,17 @@
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [dataSource count];
+    return [events count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 64;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return UITableViewCellEditingStyleNone ;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -210,10 +218,7 @@
 
 - (void)didReceiveMemoryWarning
 {
-    // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
 }
 
 @end

@@ -124,6 +124,7 @@
 		F1E1ADD0181B1F5E0041CB1A /* NewDropEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewDropEventViewController.m; sourceTree = "<group>"; };
 		F1E1ADD2181B1FA20041CB1A /* SLDateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLDateUtil.h; sourceTree = "<group>"; };
 		F1E1ADD3181B1FA20041CB1A /* SLDateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLDateUtil.m; sourceTree = "<group>"; };
+		F1E1ADD5181B3DC00041CB1A /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +300,7 @@
 		F1E1ADB4181AECCA0041CB1A /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				F1E1ADD5181B3DC00041CB1A /* Logger.h */,
 				F1E1ADD2181B1FA20041CB1A /* SLDateUtil.h */,
 				F1E1ADD3181B1FA20041CB1A /* SLDateUtil.m */,
 				F1E1ADBA181B02030041CB1A /* ImageLoading.h */,

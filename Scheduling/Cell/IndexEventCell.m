@@ -49,7 +49,7 @@
         [self.contentView addSubview:userLabel];
         
         //イベント
-        eventLabel = [[VerticalLabel alloc] initWithFrame:CGRectMake(60, 16, 170, 44)];
+        eventLabel = [[VerticalLabel alloc] initWithFrame:CGRectMake(60, 16, 200, 44)];
         eventLabel.numberOfLines=2;
         eventLabel.backgroundColor=[UIColor clearColor];
         eventLabel.font=[UIFont systemFontOfSize:12];

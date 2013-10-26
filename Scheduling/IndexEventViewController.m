@@ -11,6 +11,7 @@
 #import "Event.h"
 #import "ImageLoading.h"
 #import "FMDatabase.h"
+#import "Logger.h"
 
 @interface IndexEventViewController ()
 
@@ -44,18 +45,24 @@
 
 - (void)getEvent
 {
-    NSLog(@"getEvent");
-    
-    // 通常はDBを利用
     NSMutableArray *dataArray = [NSMutableArray array];
-    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    [dic setObject:@"ハリーポッター上映日" forKey:@"name"];
-    [dic setObject:@"1" forKey:@"schedule_id"];
-    [dic setObject:@"1" forKey:@"creator_id"];
-    [dic setObject:@"http://a3.mzstatic.com/us/r1000/012/Purple4/v4/56/d7/0e/56d70e8a-2df7-ba5a-8a32-c8926abc976d/mzl.udlwkxfs.175x175-75.jpg" forKey:@"icon_path"];
-    [dic setObject:@"sacchy" forKey:@"user_name"];
-    [dic setObject:@"半純血のプリンス" forKey:@"details"];
-    [dataArray addObject:dic];
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:[dir stringByAppendingPathComponent:@"event.db"]];
+    NSString *select = [NSString stringWithFormat:@"SELECT * FROM events LIMIT 0,30"];
+    [db open];
+    FMResultSet *results = [db executeQuery:select];
+    while ([results next])
+    {
+        NSMutableDictionary *temp = [NSMutableDictionary dictionary];
+        [temp setObject:[NSString stringWithFormat:@"%d",[results intForColumn:@"schedule_id"]] forKey:@"schedule_id"];
+        [temp setObject:[NSString stringWithFormat:@"%d",[results intForColumn:@"creator_id"]] forKey:@"creator_id"];
+        [temp setObject:[results stringForColumn:@"name"] forKey:@"name"];
+        [temp setObject:[results stringForColumn:@"icon_path"] forKey:@"icon_path"];
+        [temp setObject:[results stringForColumn:@"user_name"] forKey:@"user_name"];
+        [temp setObject:[results stringForColumn:@"details"] forKey:@"details"];
+        [dataArray addObject:temp];
+    }
+    [db close];
     
     events = [NSMutableArray array]; // 表示用
     for(NSMutableDictionary *dic in dataArray)
@@ -63,12 +70,21 @@
         Event *event = [[Event alloc] initWithData:dic];
         [events addObject:event];
     }
+    
+    [self.tableView reloadData];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self getEvent];
 }
 
 - (void)didReceiveMemoryWarning

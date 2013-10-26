@@ -59,7 +59,7 @@
 {    
     NewDropEventViewController *newEvent = [[NewDropEventViewController alloc] init];
     UINavigationController *newNav = [[UINavigationController alloc] initWithRootViewController:newEvent];
-    newNav.navigationBar.barStyle = UIBarStyleBlackOpaque;
+//    newNav.navigationBar.barStyle = UIBarStyleBlackOpaque;
     [self presentViewController:newNav animated:YES completion:nil];
 }
 

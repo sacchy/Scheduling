@@ -27,6 +27,11 @@
                                                                                                action:@selector(newEventButtonDidPush:)];
         self.navigationItem.rightBarButtonItem = newPrivateEventButton;
         
+        // イベント編集ボタン
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Edit", @"")
+                                                                                 style:UIBarButtonItemStyleBordered
+                                                                                target:self
+                                                                                action:@selector(editMode)];
     }
     return self;
 }
@@ -59,7 +64,6 @@
 {    
     NewDropEventViewController *newEvent = [[NewDropEventViewController alloc] init];
     UINavigationController *newNav = [[UINavigationController alloc] initWithRootViewController:newEvent];
-//    newNav.navigationBar.barStyle = UIBarStyleBlackOpaque;
     [self presentViewController:newNav animated:YES completion:nil];
 }
 

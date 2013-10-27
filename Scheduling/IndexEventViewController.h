@@ -23,5 +23,6 @@ typedef enum IndexEventViewControllerType
 }
 
 - (id)initWithType:(IndexEventViewControllerType)type user:(NSInteger)userID;
-
+- (void)editMode;
+- (void)leaveEdit;
 @end

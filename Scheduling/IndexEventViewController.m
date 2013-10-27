@@ -47,6 +47,8 @@
 {
     NSMutableArray *dataArray = [NSMutableArray array];
     
+    paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES );
+    dir   = [paths objectAtIndex:0];
     FMDatabase *db = [FMDatabase databaseWithPath:[dir stringByAppendingPathComponent:@"event.db"]];
     NSString *select = [NSString stringWithFormat:@"SELECT * FROM events LIMIT 0,30"];
     [db open];
@@ -65,7 +67,7 @@
     [db close];
     
     events = [NSMutableArray array]; // 表示用
-    for(NSMutableDictionary *dic in dataArray)
+    for (NSMutableDictionary *dic in dataArray)
     {
         Event *event = [[Event alloc] initWithData:dic];
         [events addObject:event];
@@ -73,6 +75,9 @@
     
     [self.tableView reloadData];
 }
+
+#pragma mark -
+#pragma mark View lifecycle
 
 - (void)viewDidLoad
 {

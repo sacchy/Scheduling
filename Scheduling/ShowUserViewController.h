@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ShowViewController.h"
+#import "User.h"
 
-@interface ShowUserViewController : UIViewController
+@interface ShowUserViewController : ShowViewController
+{
+     NSInteger userId_;
+    User *user;
+}
+
+- (id)initWithUserId:(NSInteger)userId;
 
 @end

@@ -152,7 +152,6 @@
     titleLabel.numberOfLines=2;
     titleLabel.font=[UIFont boldSystemFontOfSize:18];
     titleLabel.backgroundColor =[UIColor clearColor];
-//    titleLabel.textColor=[UIColor whiteColor];
     titleLabel.textAlignment=NSTextAlignmentCenter;
     titleLabel.text = self.title;
     self.navigationItem.titleView=titleLabel;

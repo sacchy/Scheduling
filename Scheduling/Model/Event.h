@@ -9,10 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Event : NSObject
-{
-    NSMutableDictionary *dic_event;
-    NSMutableDictionary *dic_relation;    
-}
+
 - (id)initWithData:(NSMutableDictionary*)dic;
 - (NSMutableDictionary*)getDictionary;
 

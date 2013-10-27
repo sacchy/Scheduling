@@ -56,7 +56,11 @@
     FMResultSet *results = [db executeQuery:select];
     while ([results next])
     {
-        if ([results intForColumn:@"count"] < 1) continue;
+        if ([results intForColumn:@"count"] < 1)
+        {
+            [headerView removeFromSuperview];
+            continue;
+        }
         
         NSMutableDictionary *temp = [NSMutableDictionary dictionary];
         [temp setObject:[results stringForColumn:@"user_name"] forKey:@"user_name"];

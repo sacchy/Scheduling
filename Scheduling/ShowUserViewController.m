@@ -56,6 +56,8 @@
     FMResultSet *results = [db executeQuery:select];
     while ([results next])
     {
+        if ([results intForColumn:@"count"] < 1) continue;
+        
         NSMutableDictionary *temp = [NSMutableDictionary dictionary];
         [temp setObject:[results stringForColumn:@"user_name"] forKey:@"user_name"];
         [temp setObject:[results stringForColumn:@"icon_path"] forKey:@"icon_path"];
@@ -118,7 +120,7 @@
     [userPanel addSubview:eventButton];
     
     //　フォロー
-    UIButton *followingButton = [DisplayUtil createCountButton:5
+    UIButton *followingButton = [DisplayUtil createCountButton:0
                                                      unitText:NSLocalizedString(@"フォロー", @"Title")];
     [followingButton addTarget:self
                        action:@selector(followButtonDidPush:)
@@ -127,7 +129,7 @@
     [userPanel addSubview:followingButton];
     
     // フォロワー
-    UIButton *followerButton = [DisplayUtil createCountButton:777
+    UIButton *followerButton = [DisplayUtil createCountButton:0
                                                     unitText:NSLocalizedString(@"フォロワー", @"Title")];
     [followerButton addTarget:self
                       action:@selector(followerButtonDidPush:)

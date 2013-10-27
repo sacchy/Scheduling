@@ -1,23 +1,20 @@
 //
-//  Event.h
+//  User.h
 //  Scheduling
 //
-//  Created by Sacchy on 2013/10/25.
+//  Created by 佐藤 昌樹 on 2013/10/27.
 //  Copyright (c) 2013年 sacchy. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface Event : NSObject
+@interface User : NSObject
 
 - (id)initWithData:(NSMutableDictionary*)dic;
 - (NSMutableDictionary*)getDictionary;
 
-@property(nonatomic,assign) NSInteger scheduleId;
-@property(nonatomic,retain) NSString *name;
-@property(nonatomic,retain) NSString *details;
-@property(nonatomic,assign) NSInteger creatorId;
 @property(nonatomic,retain) NSString *userName;
 @property(nonatomic,retain) NSString *iconPath;
+@property(nonatomic,assign) NSInteger count;
 
 @end

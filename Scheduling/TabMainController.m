@@ -33,7 +33,7 @@
                                                      image:[UIImage imageNamed:@"tl.png"]
                                                        tag:1];
     
-    showUserViewController = [[ShowUserViewController alloc] init];
+    showUserViewController = [[ShowUserViewController alloc] initWithUserId:1];
     UINavigationController *showUserNav = [[UINavigationController alloc] initWithRootViewController:showUserViewController];
     showUserNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"User", @"TabBarTitle")
                                                      image:[UIImage imageNamed:@"user.png"]

@@ -12,10 +12,15 @@
 
 @interface ShowUserViewController : ShowViewController
 {
-     NSInteger userId_;
+    NSInteger userId_;
     User *user;
+    
+    UIView *headerView;
+    UIImageView *iconView;
+    UILabel *nameLabel;
+    UILabel *introductionLabel;
 }
 
 - (id)initWithUserId:(NSInteger)userId;
-
++ (UIButton*)createCountButton:(NSInteger)count unitText:(NSString*)unit;
 @end

@@ -14,6 +14,7 @@
 - (NSMutableDictionary*)getDictionary;
 
 @property(nonatomic,retain) NSString *userName;
+@property(nonatomic,retain) NSString *iconPath;
 @property(nonatomic,assign) NSInteger count;
 
 @end

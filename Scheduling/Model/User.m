@@ -10,7 +10,7 @@
 #import "SLStringUtil.h"
 
 @implementation User
-@synthesize userName, count;
+@synthesize userName, iconPath, count;
 
 // Dictionaryからモデルを作成
 - (id)initWithData:(NSMutableDictionary*)dic
@@ -19,6 +19,7 @@
     if (self)
     {
         self.userName = [dic objectForKey:@"user_name"];
+        self.iconPath = [NSString stringWithFormat:@"%@",[dic objectForKey:@"icon_path"]];
         self.count = [[SLStringUtil convNullToBlankForInt:[dic objectForKey:@"count"]] intValue];
     }
     return self;
@@ -31,6 +32,7 @@
     
     // この値でセットした辞書をGET
     [dic setObject:[SLStringUtil convNullToBlank:userName] forKey:@"user_name"];
+    [dic setObject:[SLStringUtil convNullToBlank:iconPath] forKey:@"icon_path"];
     [dic setObject:[NSNumber numberWithInt:count]          forKey:@"count"];
     return dic;
 }

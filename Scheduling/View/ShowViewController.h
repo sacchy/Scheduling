@@ -13,5 +13,7 @@
     // FMDB
     NSArray *paths;
     NSString *dir;
+    
+    NSMutableDictionary *imageCache;
 }
 @end

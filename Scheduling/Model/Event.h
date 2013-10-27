@@ -17,7 +17,6 @@
 @property(nonatomic,retain) NSString *name;
 @property(nonatomic,retain) NSString *details;
 @property(nonatomic,assign) NSInteger creatorId;
-
 @property(nonatomic,retain) NSString *userName;
 @property(nonatomic,retain) NSString *iconPath;
 

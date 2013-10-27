@@ -116,12 +116,6 @@
     return 64;
 }
 
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-	// スワイプでDeleteボタンが表示されないようにする
-	return UITableViewCellEditingStyleNone ;
-}
-
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     cell.backgroundColor = [UIColor colorWithRed:0.985 green:0.985 blue:0.985 alpha:1.0];
@@ -152,5 +146,52 @@
     }
 
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableView beginUpdates];
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        Event *event = [events objectAtIndex:indexPath.row];
+        FMDatabase *db = [FMDatabase databaseWithPath:[dir stringByAppendingPathComponent:@"event.db"]];
+        NSString *select = [NSString stringWithFormat:@"DELETE FROM events WHERE schedule_id = '%d'",event.scheduleId];
+        [db open];
+        [db executeUpdate:select];
+        [db close];
+        
+        [events removeObjectAtIndex: indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+    }
+    else if (editingStyle == UITableViewCellEditingStyleInsert)
+    {
+        
+    }
+    
+    [self.tableView endUpdates];
+}
+
+#pragma mark - Editmode
+- (void)editMode
+{
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Done", @"")
+                                                                             style:UIBarButtonItemStyleDone
+                                                                            target:self
+                                                                            action:@selector(leaveEdit)];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+    [self.tableView setEditing:YES animated:YES];
+}
+
+- (void)leaveEdit
+{
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Edit", @"")
+                                                                             style:UIBarButtonItemStyleBordered
+                                                                            target:self
+                                                                            action:@selector(editMode)];
+    
+    self.navigationItem.rightBarButtonItem.enabled = YES;
+	[self.tableView setEditing:NO animated:YES];
 }
 @end
